@@ -27,7 +27,7 @@ Analyzing reviews of popular TV shows and clustering by topics
         2. Date Published
         3. Writer's Name
         4. Text 
-![](images/scraping_gif.gif width="400" height="790")
+![](images/scraping_gif.gif | height="790")
         
     The spider can be accessed in the data_collection/data_collection folder (I know, need better names).
     In the terminal, just type <scrapy crawl tv_shows -o dataset.csv> and let the scraping commence!
