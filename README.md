@@ -79,6 +79,9 @@ def text_preprocessor(string):
 
     return ' '.join(lemmatized_words) 
 ```
-        
+
+## Exploratory Data Analysis
+### What is the timeframe of my dataset?
+![](images/review_count_by_month.png)
         
 
