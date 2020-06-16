@@ -29,5 +29,24 @@ Analyzing reviews of popular TV shows and clustering by topics
         4. Text 
     The spider can be accessed in the data_collection/data_collection folder (I know, need better names).
     In the terminal, just type <scrapy crawl tv_shows -o dataset.csv> and let the scraping commence!
+### Text Processing
+    One of the most critical tasks in this phase is transforming the actual text feature in such a way that I can quantify
+    the words. So I created a function that runs through the following micro-tasks:
+        * Accepts a string as an Argument 
+        * Eliminate numbers and punctuation
+        * Converts everything to lowercase
+        * Remove extra white space so that only a single space separated each word
+        * Returns a string consisting of alphabetic characters only
+            '''python
+            def clean_text(string):
+    clean_text = re.sub("[^a-zA-Z\s]", " ", string)
+    #covert all test to lowercase
+    lower_text = clean_text.lower()
+    single_white_space_text = re.sub("\s+", " ", lower_text)
+    return single_white_space_text
+            
+            '''
+    The second function I created is designed to process the text data even further by removing "words" shorter than 3 letters.
+        
         
 
