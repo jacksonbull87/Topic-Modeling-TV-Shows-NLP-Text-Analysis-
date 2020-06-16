@@ -18,4 +18,15 @@ Analyzing reviews of popular TV shows and clustering by topics
     * NLTK
     * Regex
     * WordCloud
+    
+## Data Collection / Cleaning &  Processing
+### Getting The Data
+    Using the scrapy library, I generated a spider named 'tv_shows' that would crawl the Entertainment-TV section
+    on The Verge's website. Within this spider class are a set of instructions to parse html response for 4 attributes:
+        1. Title of the Article
+        2. Date Published
+        3. Writer's Name
+        4. Text 
+    The spider can be accessed in the data_collection [directory](https://github.com/jacksonbull87/Topic-Modeling-TV-Shows-NLP-Text-Analysis-/tree/master/data_collection) . In the terminal, just type <scrapy crawl tv_shows -o dataset.csv>
+        
 
