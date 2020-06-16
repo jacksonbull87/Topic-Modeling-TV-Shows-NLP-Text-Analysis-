@@ -28,7 +28,7 @@ Analyzing reviews of popular TV shows and clustering by topics
         3. Writer's Name
         4. Text 
     The spider can be accessed in the data_collection 
-    [directory](data_collection)
+    [Directory](data_collection)
     In the terminal, just type <scrapy crawl tv_shows -o dataset.csv>
         
 
