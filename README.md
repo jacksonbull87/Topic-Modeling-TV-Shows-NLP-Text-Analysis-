@@ -32,14 +32,15 @@ Analyzing reviews of popular TV shows and clustering by topics
     The spider can be accessed in the data_collection/data_collection folder (I know, need better names).
     In the terminal, just type <scrapy crawl tv_shows -o dataset.csv> and let the scraping commence!
 ### Text Processing
-    One of the most critical tasks in this phase is transforming the actual text feature in such a way that I can quantify
+    One of the most critical tasks in this phase is transforming the actual text feature in such a way 
+    that I can quantify
     the words. So I created a function that runs through the following micro-tasks:
         * Accepts a string as an Argument 
         * Eliminate numbers and punctuation
         * Converts everything to lowercase
         * Remove extra white space so that only a single space separated each word
         * Returns a string consisting of alphabetic characters only
-####
+
 ```python
     def clean_text(string):
         clean_text = re.sub("[^a-zA-Z\s]", " ", string)
@@ -49,7 +50,35 @@ Analyzing reviews of popular TV shows and clustering by topics
         return single_white_space_text
 ```
             
-    The second function I created is designed to process the text data even further by removing "words" shorter than 3 letters.
+    The second function I created is designed to process the text data even further by tokening 
+    the words so I get an iterable object with each item being a word,
+    removing "words" shorter than 3 letters and lemmatizing each word.
+    
+```python
+def text_preprocessor(string):
+    tokenize_review = string.split()
+    word_list = []
+    #let's remove any word that has less than 3 letters. this will 
+    #take care of indefinite articles and former contractions that 
+    #resulted in single letter words after removing punctuations.
+    for word in tokenize_review:
+        if len(word) > 2:
+            word_list.append(word)
+    #now let's remove english stopwords
+    filtered_wordlist = []
+    for word in word_list:
+        if word not in stopwords.words('english'):
+            filtered_wordlist.append(word)
+    #now let's lemmatize each item so that words with similar 
+    #inflections will be counted as one item
+    lemmatizer = WordNetLemmatizer()
+    lemmatized_words = []
+    for word in filtered_wordlist:
+        lemmatized_words.append(lemmatizer.lemmatize(word))
+    
+
+    return ' '.join(lemmatized_words) 
+```
         
         
 
