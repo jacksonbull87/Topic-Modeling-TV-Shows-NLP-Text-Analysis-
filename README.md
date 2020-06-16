@@ -82,6 +82,8 @@ def text_preprocessor(string):
 
 ## Exploratory Data Analysis
 ### What is the timeframe of my dataset?
-![](images/review_count_by_month.png, align="right")
+![](images/review_count_by_month.png)
+
+
         
 
