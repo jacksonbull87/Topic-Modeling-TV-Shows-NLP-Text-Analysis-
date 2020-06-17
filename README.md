@@ -84,6 +84,38 @@ def text_preprocessor(string):
 ### What is the timeframe of my dataset?
 ![](images/review_count_by_month.png)
 
+    Now that I have a better understanding of the date range of my data, I can group the documents by month
+     and create a wordcloud that visualizes the most popular terms according to occurances. And I specifically 
+     filtered out words that occur more than 50 times in the entire corpus to avoid common words such as
+     "season" or "episode" or any other word that is part of everyday speech.
+     
+    
+```python
+def create_wordcloud(documents, title):
+    #function accepts all the documents in the form of a string and a title for the wordcloud
+    #all documents will be joined into one giant string
+    all_text = ' '.join(documents)
+    
+    #create a wordcloud with a max of 100 words. Collocations set to True to include bigrams
+    wordcloud = WordCloud(background_color="white", max_words=100, collocations=True).generate(all_text)
+    
+    rcParams['figure.figsize'] = 10, 20 #set the size of the wordcloud box
+    plt.imshow(wordcloud)
+    plt.axis("off")
+    plt.title(title)
+    plt.show() 
+```
+
+### WordClouds!!
+
+![](images/december_19_wordcloud.png)
+![](images/january_19_wordcloud.png)
+![](images/march_19_wordcloud.png)
+![](images/april_19_wordcloud.png)
+![](images/may_19_wordcloud.png)
+
+     
+
 
         
 
